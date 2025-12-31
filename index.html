@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year - MBUKU</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff006e 0%, #8338ec 25%, #ffbe0b 50%, #3a86ff 75%, #ff006e 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            max-width: 800px;
+            z-index: 10;
+        }
+
+        .prank-message {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            line-height: 1.4;
+            animation: bounce 1s ease-in-out infinite;
+            letter-spacing: 2px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .image-container {
+            margin: 40px 0;
+            animation: scaleIn 0.8s ease-out;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            border: 5px solid #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 215, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .visit-counter {
+            margin-top: 50px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px 30px;
+            border-radius: 15px;
+            display: inline-block;
+            border: 2px solid #fff;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .visit-count {
+            color: #ffbe0b;
+            font-size: 2.5rem;
+            display: block;
+            text-shadow: 0 0 10px #ffbe0b;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .prank-text {
+            font-size: 1.3rem;
+            color: #ffbe0b;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .new-year-emoji {
+            font-size: 3rem;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px 15px;
+                max-width: 100%;
+            }
+
+            .new-year-emoji {
+                font-size: 2.5rem;
+            }
+
+            .prank-message {
+                font-size: 1.6rem;
+                margin-bottom: 20px;
+                letter-spacing: 1px;
+            }
+
+            .image-container {
+                margin: 30px 0;
+            }
+
+            .image-container img {
+                max-height: 400px;
+                border: 3px solid #fff;
+            }
+
+            .visit-counter {
+                font-size: 1.2rem;
+                padding: 15px 20px;
+                margin-top: 30px;
+            }
+
+            .visit-count {
+                font-size: 1.8rem;
+                margin: 10px 0;
+            }
+
+            .prank-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px 10px;
+            }
+
+            .new-year-emoji {
+                font-size: 2rem;
+            }
+
+            .prank-message {
+                font-size: 1.4rem;
+                margin-bottom: 15px;
+                line-height: 1.3;
+            }
+
+            .image-container {
+                margin: 20px 0;
+            }
+
+            .image-container img {
+                max-height: 300px;
+                border: 2px solid #fff;
+                border-radius: 10px;
+            }
+
+            .visit-counter {
+                font-size: 1rem;
+                padding: 12px 15px;
+                margin-top: 20px;
+                border-radius: 10px;
+            }
+
+            .visit-count {
+                font-size: 1.6rem;
+                margin: 8px 0;
+            }
+
+            .prank-text {
+                font-size: 1rem;
+                margin-top: 10px;
+            }
+
+            .confetti {
+                width: 8px;
+                height: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="new-year-emoji">🎉</div>
+        <p class="prank-message">
+            MBUKU REALLY, REALLY...DOES EVEN MBUKU EXIST...and YOU FELL FOR IT...any ways happy new year
+        </p>
+
+        <div class="image-container">
+            <img src="image.png" alt="The ultimate prank reveal!">
+        </div>
+
+        <div class="visit-counter">
+            <div>ALSO THESE</div>
+            <span class="visit-count" id="visitCount">0</span>
+            <div class="prank-text">fell like you</div>
+        </div>
+    </div>
+
+    <script>
+        // Confetti animation
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.backgroundColor = ['#ff006e', '#8338ec', '#ffbe0b', '#3a86ff', '#fb5607'][Math.floor(Math.random() * 5)];
+            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(confetti);
+
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+
+        // Create confetti every 300ms
+        setInterval(createConfetti, 300);
+
+        // Visit counter logic using localStorage
+        function initializeVisitCounter() {
+            let visitCount = localStorage.getItem('visitCount');
+            
+            if (visitCount === null) {
+                visitCount = 1;
+            } else {
+                visitCount = parseInt(visitCount) + 1;
+            }
+            
+            localStorage.setItem('visitCount', visitCount);
+            document.getElementById('visitCount').textContent = visitCount;
+        }
+
+        // Initialize counter when page loads
+        window.addEventListener('load', initializeVisitCounter);
+    </script>
+</body>
+</html>
